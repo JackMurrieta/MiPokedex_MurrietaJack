@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,27 +10,103 @@
     android:background="@color/amarillo_fondo"
     tools:context=".MainActivity">
 
-
-    <!-- realizar btn image star icon fondo blanco, sin texto,  -->
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="marcar favorito"
-        android:textColorLink="#FFFFFF"
-        app:icon="@drawable/star_icon"
+    <!--
+        BOTÓN FAVORITO
+        - Solo icono de estrella
+        - Fondo blanco
+        - Sin texto
+        - Ubicado en la esquina superior derecha
+    -->
+    <ImageButton
+        android:id="@+id/btnStar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/white"
+        android:contentDescription="Marcar como favorito"
+        android:padding="12dp"
+        android:src="@drawable/star_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- rotar imagen lado derecho 30° agregarle margin para lado  -->
+
+    <!--
+        POKÉBALL
+        - Lado derecho
+        - Separada del borde
+        - Rotación de 30 grados
+        - Se mantiene en su tamaño
+    -->
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="304dp"
-        android:layout_height="246dp"
-        android:textAlignment="center"
+        android:id="@+id/imgPokeball"
+        android:layout_width="221dp"
+        android:layout_height="228dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="16dp"
+        android:rotation="30"
+        android:src="@drawable/pokeball_background"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--
+        POKÉMON
+        - El tamaño depende de la imagen
+        - No se fuerza dentro de un contenedor grande
+        - Ubicado hacia el lado izquierdo
+    -->
+
+
+    <!--
+        NÚMERO DEL POKÉMON
+        - Debajo de la imagen
+        - Alineado hacia el lado izquierdo
+    -->
+
+
+    <!--
+        NOMBRE DEL POKÉMON
+        - Debajo del número
+        - Con separación superior
+        - Un poco desplazado hacia la derecha
+    -->
+
+    <ImageView
+        android:id="@+id/imgPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Pokémon"
+        android:src="@drawable/pikachu"
+        app:layout_constraintBottom_toBottomOf="@id/imgPokeball"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pokeball_background" />
+        app:layout_constraintTop_toTopOf="@id/imgPokeball"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/nombre_pokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/nombre_pokemon"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStar" />
+
+    <TextView
+        android:id="@+id/num_Pokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/num_pokemon"
+        android:textColor="@color/texto"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/nombre_pokemon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre_pokemon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
