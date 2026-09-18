@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Color rojo etiquetas caracteristicas,
+     color gris: texto,
+     -->
+    <color name="texto">#48474d</color>
+    <color name="rojo">#ce221a</color>
+    <color name="amarillo_fondo">#ecd235</color>
 </resources>
