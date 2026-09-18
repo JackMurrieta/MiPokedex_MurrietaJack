@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MiPokedex_MurrietaJackT</string>
+    <string name="nombre_pokemon">Pikachu</string>
+    <string name="num_pokemon">#025</string>
+    <string name="altura">0,4m</string>
+    <string name="peso">6,0kg</string>
+    <string name="habilidad">Elec.Estática</string>
+    <string name="descripcion">
+        Cuando se enfada, este Pokémon descarga la energia que almacena en el interior de las bolsas de las mejillas.
+    </string>
+
+    <string name="pokemon_anterior">Arbok N.° 0024</string>
+    <string name="pokemon_sig">Raichu N.°0026</string>
+
+
 </resources>
