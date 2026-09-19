@@ -10,39 +10,34 @@
     android:background="@color/amarillo_fondo"
     tools:context=".MainActivity">
 
-    <!--
-        BOTÓN FAVORITO
-        - Solo icono de estrella
-        - Fondo blanco
-        - Sin texto
-        - Ubicado en la esquina superior derecha
-    -->
+
+    <!-- ========================================= -->
+    <!-- BOTÓN FAVORITO -->
+    <!-- ========================================= -->
+
     <ImageButton
         android:id="@+id/btnStar"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@android:color/white"
+        android:background="@android:color/transparent"
         android:contentDescription="Marcar como favorito"
-        android:padding="12dp"
+        android:padding="4dp"
         android:src="@drawable/star_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <!--
-        POKÉBALL
-        - Lado derecho
-        - Separada del borde
-        - Rotación de 30 grados
-        - Se mantiene en su tamaño
-    -->
+    <!-- ========================================= -->
+    <!-- POKÉBALL -->
+    <!-- ========================================= -->
+
     <ImageView
         android:id="@+id/imgPokeball"
         android:layout_width="221dp"
         android:layout_height="228dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="16dp"
         android:rotation="30"
         android:src="@drawable/pokeball_background"
@@ -50,40 +45,169 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <!--
-        POKÉMON
-        - El tamaño depende de la imagen
-        - No se fuerza dentro de un contenedor grande
-        - Ubicado hacia el lado izquierdo
-    -->
+    <!-- ========================================= -->
+    <!-- GUIDELINE -->
+    <!-- Indica dónde comienza el panel blanco -->
+    <!-- ========================================= -->
 
-
-    <!--
-        NÚMERO DEL POKÉMON
-        - Debajo de la imagen
-        - Alineado hacia el lado izquierdo
-    -->
-
-
-    <!--
-        NOMBRE DEL POKÉMON
-        - Debajo del número
-        - Con separación superior
-        - Un poco desplazado hacia la derecha
-    -->
-
-    <ImageView
-        android:id="@+id/imgPokemon"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinePanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="Pokémon"
-        android:src="@drawable/pikachu"
-        app:layout_constraintBottom_toBottomOf="@id/imgPokeball"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+
+    <!-- ========================================= -->
+    <!-- PANEL BLANCO -->
+    <!-- ========================================= -->
+
+    <FrameLayout
+        android:id="@+id/infoPanel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_info_panel"
+        app:layout_constraintTop_toTopOf="@id/guidelinePanel"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imgPokeball"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/infoContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- TIPO -->
+
+            <TextView
+                android:id="@+id/tipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tipo"
+                android:paddingStart="18dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="18dp"
+                android:paddingBottom="8dp"
+                android:text="@string/tipo"
+                android:textColor="@color/texto"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <!-- COLUMNA IZQUIERDA -->
+
+            <!-- ALTURA -->
+
+            <TextView
+                android:id="@+id/altura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="Altura"
+                android:textColor="@color/rojo"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/habilidad" />
+
+            <TextView
+                android:id="@+id/value_altura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/altura"
+                android:textColor="@color/texto"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/altura"
+                app:layout_constraintStart_toEndOf="@id/altura" />
+
+
+            <!-- PESO -->
+
+            <TextView
+                android:id="@+id/peso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Peso"
+                android:textColor="@color/rojo"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/altura"
+                app:layout_constraintTop_toBottomOf="@id/altura" />
+
+            <TextView
+                android:id="@+id/value_peso"
+                android:layout_width="51dp"
+                android:layout_height="29dp"
+                android:text="@string/peso"
+                android:textColor="@color/texto"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/peso"
+                app:layout_constraintStart_toStartOf="@+id/value_altura" />
+
+
+            <!-- COLUMNA DERECHA -->
+
+            <!-- HABILIDAD -->
+
+
+            <!-- DESCRIPCIÓN -->
+
+            <TextView
+                android:id="@+id/habilidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="20dp"
+                android:text="Habilidad"
+                android:textColor="@color/rojo"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/value_altura"
+                app:layout_constraintTop_toBottomOf="@id/tipo" />
+
+            <TextView
+                android:id="@+id/value_habilidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/habilidad"
+                android:textColor="@color/texto"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/habilidad"
+                app:layout_constraintTop_toBottomOf="@id/habilidad" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="32dp"
+                android:gravity="center"
+                android:text="@string/descripcion"
+                android:textColor="@color/texto"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/value_habilidad" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </FrameLayout>
+
+
+    <!-- NOMBRE -->
 
     <TextView
         android:id="@+id/nombre_pokemon"
@@ -93,8 +217,12 @@
         android:text="@string/nombre_pokemon"
         android:textColor="@color/white"
         android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStar" />
+        app:layout_constraintTop_toBottomOf="@id/btnStar" />
+
+
+    <!-- NÚMERO -->
 
     <TextView
         android:id="@+id/num_Pokemon"
@@ -105,8 +233,24 @@
         android:text="@string/num_pokemon"
         android:textColor="@color/texto"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/nombre_pokemon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre_pokemon" />
+        app:layout_constraintTop_toBottomOf="@id/nombre_pokemon" />
+
+
+    <!-- POKÉMON -->
+    <!-- Se declara al final para que quede encima -->
+    <!-- del panel blanco -->
+
+    <ImageView
+        android:id="@+id/imgPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="Pokémon"
+        android:src="@drawable/pikachu"
+        app:layout_constraintBottom_toBottomOf="@id/imgPokeball"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgPokeball"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

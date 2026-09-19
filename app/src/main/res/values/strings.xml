@@ -4,6 +4,7 @@
     <string name="num_pokemon">#025</string>
     <string name="altura">0,4m</string>
     <string name="peso">6,0kg</string>
+    <string name="tipo">Eléctrico</string>
     <string name="habilidad">Elec.Estática</string>
     <string name="descripcion">
         Cuando se enfada, este Pokémon descarga la energia que almacena en el interior de las bolsas de las mejillas.
