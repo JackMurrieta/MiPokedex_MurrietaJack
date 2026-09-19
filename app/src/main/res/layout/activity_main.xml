@@ -11,9 +11,6 @@
     tools:context=".MainActivity">
 
 
-    <!-- ========================================= -->
-    <!-- BOTÓN FAVORITO -->
-    <!-- ========================================= -->
 
     <ImageButton
         android:id="@+id/btnStar"
@@ -29,9 +26,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <!-- ========================================= -->
-    <!-- POKÉBALL -->
-    <!-- ========================================= -->
 
     <ImageView
         android:id="@+id/imgPokeball"
@@ -45,10 +39,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <!-- ========================================= -->
-    <!-- GUIDELINE -->
-    <!-- Indica dónde comienza el panel blanco -->
-    <!-- ========================================= -->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinePanel"
@@ -58,9 +48,6 @@
         app:layout_constraintGuide_percent="0.40" />
 
 
-    <!-- ========================================= -->
-    <!-- PANEL BLANCO -->
-    <!-- ========================================= -->
 
     <FrameLayout
         android:id="@+id/infoPanel"
@@ -75,14 +62,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/infoContent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:translationY="-15dp">
 
-            <!-- TIPO -->
 
             <TextView
                 android:id="@+id/tipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/bg_tipo"
                 android:paddingStart="18dp"
                 android:paddingTop="8dp"
@@ -92,15 +80,9 @@
                 android:textColor="@color/texto"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginTop="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-
-            <!-- COLUMNA IZQUIERDA -->
-
-            <!-- ALTURA -->
 
             <TextView
                 android:id="@+id/altura"
@@ -124,7 +106,6 @@
                 android:textSize="20sp"
                 app:layout_constraintBaseline_toBaselineOf="@id/altura"
                 app:layout_constraintStart_toEndOf="@id/altura" />
-
 
             <!-- PESO -->
 
@@ -151,12 +132,8 @@
                 app:layout_constraintStart_toStartOf="@+id/value_altura" />
 
 
-            <!-- COLUMNA DERECHA -->
 
             <!-- HABILIDAD -->
-
-
-            <!-- DESCRIPCIÓN -->
 
             <TextView
                 android:id="@+id/habilidad"
@@ -170,6 +147,8 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/value_altura"
                 app:layout_constraintTop_toBottomOf="@id/tipo" />
+
+            <!-- DESCRIPCIÓN -->
 
             <TextView
                 android:id="@+id/value_habilidad"
@@ -199,15 +178,42 @@
                 app:layout_constraintTop_toBottomOf="@id/value_habilidad" />
 
 
+
+            <ImageView
+                android:id="@+id/img_raichu"
+                android:layout_width="91dp"
+                android:layout_height="89dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="Raichu"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/img_arbok"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.893"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/img_arbok"
+                app:srcCompat="@drawable/raichu" />
+
+            <ImageView
+                android:id="@+id/img_arbok"
+                android:layout_width="91dp"
+                android:layout_height="89dp"
+                android:layout_marginBottom="32dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="Arbok"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/arbok" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
     </FrameLayout>
 
-
+    <!-- ========================================= -->
     <!-- NOMBRE -->
+    <!-- ========================================= -->
 
     <TextView
         android:id="@+id/nombre_pokemon"
@@ -219,10 +225,11 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnStar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStar" />
 
-
+    <!-- ========================================= -->
     <!-- NÚMERO -->
+    <!-- ========================================= -->
 
     <TextView
         android:id="@+id/num_Pokemon"
@@ -237,9 +244,6 @@
         app:layout_constraintTop_toBottomOf="@id/nombre_pokemon" />
 
 
-    <!-- POKÉMON -->
-    <!-- Se declara al final para que quede encima -->
-    <!-- del panel blanco -->
 
     <ImageView
         android:id="@+id/imgPokemon"
