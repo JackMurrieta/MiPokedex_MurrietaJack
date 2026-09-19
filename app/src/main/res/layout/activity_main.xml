@@ -136,6 +136,29 @@
             <!-- HABILIDAD -->
 
             <TextView
+                android:id="@+id/value_peso2"
+                android:layout_width="109dp"
+                android:layout_height="20dp"
+                android:text="@string/pokemon_anterior"
+                android:textColor="@color/texto"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/img_arbok"
+                app:layout_constraintStart_toStartOf="@+id/img_arbok"
+                app:layout_constraintTop_toBottomOf="@+id/img_arbok" />
+
+            <TextView
+                android:id="@+id/sig_pokemon"
+                android:layout_width="106dp"
+                android:layout_height="21dp"
+                android:text="@string/pokemon_sig"
+                android:textColor="@color/texto"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/img_raichu"
+                app:layout_constraintHorizontal_bias="0.525"
+                app:layout_constraintStart_toStartOf="@+id/img_raichu"
+                app:layout_constraintTop_toBottomOf="@+id/img_raichu" />
+
+            <TextView
                 android:id="@+id/habilidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
