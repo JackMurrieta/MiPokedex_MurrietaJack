@@ -29,6 +29,8 @@ val Poison = Color(0xFF8E24AA)
 val Ground = Color(0xFF983D21)
 val Rock = Color(0xFF424241)
 val Flying = Color(0xFF71A9D7)
+
+val Fight  =Color(0xFFFB8C00)
 val Psych = Color(0xFFFFEB3B)
 val Ghost = Color(0xFF5E35B1)
 
