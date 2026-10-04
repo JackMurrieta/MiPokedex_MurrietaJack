@@ -22,6 +22,13 @@ fun getColorByType(tipoPokemon:String) : Array<Color>  {
 
     val tipoPokemonLower = tipoPokemon.trim().lowercase()
 
+    //obtener solo el primer tipo que se difiere con /
+    val primerTipo = if(tipoPokemonLower.contains("/")){
+        tipoPokemonLower.substringBefore("/")
+    } else {
+        tipoPokemonLower
+    }
+
     val colorMap: HashMap<String, Array<Color>> = hashMapOf(
         "normal" to arrayOf(Normal, offWhite),
         "water" to arrayOf(Water, offWhite),
@@ -41,5 +48,5 @@ fun getColorByType(tipoPokemon:String) : Array<Color>  {
 
     )
 
-    return colorMap[tipoPokemonLower] ?: arrayOf(DarkGray, offWhite)
+    return colorMap[primerTipo] ?: arrayOf(DarkGray, offWhite)
 }
