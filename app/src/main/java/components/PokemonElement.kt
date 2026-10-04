@@ -80,5 +80,5 @@ fun PokemonRow(pokemon: Pokemon){
 @Preview(showBackground = true)
 @Composable
 fun PokemonRowPreview() {
-    pokemonRow(pokemon = pokemonList[0])
+    PokemonRow(pokemon = pokemonList[0])
 }
