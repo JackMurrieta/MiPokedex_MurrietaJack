@@ -22,7 +22,7 @@ import data.pokemonList
 
 
 @Composable
-fun pokemonRow(pokemon: Pokemon){
+fun PokemonRow(pokemon: Pokemon){
     Row(
         modifier = Modifier
             .fillMaxWidth()
