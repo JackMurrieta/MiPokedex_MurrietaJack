@@ -135,6 +135,42 @@ fun FavoritePokemon(pokemon:Pokemon){
     }
 }
 
+@Composable
+fun PokemonCell(pokemon: Pokemon){
+    val pokemonType = pokemon.type
+    val typeColors = getColorByType(pokemonType)
+
+    Column(
+        modifier = Modifier
+            .width(150.dp)
+            .padding(10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Box(
+            contentAlignment = Alignment.TopEnd
+        ) {
+            Image(
+                painter = painterResource(id = pokemon.image),
+                contentDescription = "${pokemon.name} image",
+                modifier = Modifier
+                    .size(120.dp)
+                    .padding(8.dp)
+            )
+
+            NumberChip(
+                text = pokemon.num.toString(),
+                colors = typeColors
+            )
+        }
+
+        Text(
+            text = pokemon.name,
+            style = MaterialTheme.typography.labelLarge
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun PokemonRowPreview() {
@@ -145,4 +181,10 @@ fun PokemonRowPreview() {
 @Composable
 fun FavoritePokemonPreview() {
     FavoritePokemon(pokemon = pokemonList[0])
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PokemonCellPreview() {
+    PokemonCell(pokemon = pokemonList[0])
 }

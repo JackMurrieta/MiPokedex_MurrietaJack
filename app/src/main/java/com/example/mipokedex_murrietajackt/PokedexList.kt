@@ -12,8 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mipokedex_murrietajackt.ui.theme.MiPokedex_MurrietaJackTTheme
-import components.MenuPokedex
-import data.pokemonList
+import screens.MenuPokedexScreen
 
 class PokedexList : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,25 +21,9 @@ class PokedexList : ComponentActivity() {
         setContent {
             MiPokedex_MurrietaJackTTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MenuPokedex(pokemonList = pokemonList, innerPadding = innerPadding)
+                    MenuPokedexScreen(innerPadding = innerPadding)
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MiPokedex_MurrietaJackTTheme {
-        Greeting("Android")
     }
 }
