@@ -85,7 +85,7 @@ fun PokemonRow(pokemon: Pokemon){
 }
 
 @Composable
-fun FavoritePokemon(pokemon:Pokemon){
+fun FavoritePokemon(pokemon:Pokemon, onNavigateToDetail: (Int) -> Unit){
     val pokemonType = pokemon.type
     val typeColors = getColorByType(pokemonType)
 
@@ -139,7 +139,7 @@ fun FavoritePokemon(pokemon:Pokemon){
 
 @Composable
 //agregar parametro clickeable a todo lo demas
-fun PokemonCell(pokemon: Pokemon,  onNavigateToDetail: PokemonDetail(Number) -> unit){
+fun PokemonCell(pokemon: Pokemon,  onNavigateToDetail: (Int) -> Unit){
     val pokemonType = pokemon.type
     val typeColors = getColorByType(pokemonType)
 
@@ -184,11 +184,11 @@ fun PokemonRowPreview() {
 @Preview(showBackground = true)
 @Composable
 fun FavoritePokemonPreview() {
-    FavoritePokemon(pokemon = pokemonList[0])
+    FavoritePokemon(pokemon = pokemonList[0], onNavigateToDetail = {})
 }
 
 @Preview(showBackground = true)
 @Composable
 fun PokemonCellPreview() {
-    PokemonCell(pokemon = pokemonList[0])
+    PokemonCell(pokemon = pokemonList[0], onNavigateToDetail = {})
 }

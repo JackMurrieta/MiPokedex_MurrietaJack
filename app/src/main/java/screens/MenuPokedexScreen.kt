@@ -17,7 +17,7 @@ import data.pokemonList
 import navigation.PokemonDetail
 
 @Composable
-fun MenuPokedexScreen(innerPadding: PaddingValues, onNavigateToDetail: PokemonDetail){
+fun MenuPokedexScreen(innerPadding: PaddingValues, onNavigateToDetail: (Int) -> Unit){
     val favoritePokemons = pokemonList.take(5)
 
     Column(
@@ -33,7 +33,7 @@ fun MenuPokedexScreen(innerPadding: PaddingValues, onNavigateToDetail: PokemonDe
             modifier = Modifier.padding(top = 16.dp)
         )
 
-        FavriteRow(favoriteList = favoritePokemons)
+        FavriteRow(favoriteList = favoritePokemons, onNavigateToDetail = onNavigateToDetail)
 
         Text(
             text = "Todos mis pokemones",
@@ -41,13 +41,13 @@ fun MenuPokedexScreen(innerPadding: PaddingValues, onNavigateToDetail: PokemonDe
             modifier = Modifier.padding(top = 8.dp)
         )
 
-        PokedexGrid(pokemonList = pokemonList)
+        PokedexGrid(pokemonList = pokemonList, onNavigateToDetail = onNavigateToDetail)
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun MenuPokedexScreenPreview() {
-    MenuPokedexScreen(innerPadding = PaddingValues(0.dp))
+    MenuPokedexScreen(innerPadding = PaddingValues(0.dp), onNavigateToDetail = {})
 }
 

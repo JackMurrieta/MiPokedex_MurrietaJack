@@ -8,4 +8,4 @@ import kotlinx.serialization.Serializable
 object PokemonList
 
 @Serializable
-data class PokemonDetail()
+data class PokemonDetail(val pokemon: Int)

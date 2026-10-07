@@ -29,13 +29,10 @@ val pokemonList = listOf(
 )
 
 
-fun getPokemonByNumber(pokemon:Number): Pokemon{
-//    if(pokemon == -1){
-//        return
-//    }
-    return pokemonList.filter {
-        it.num == pokemon
-    }.first()
+fun getPokemonByNumber(pokemon: Number): Pokemon {
+    // Validación para manejar casos donde no se encuentra el pokemon
+    return pokemonList.find { it.num == pokemon } 
+        ?: pokemonList.first() // Retorna el primer pokemon si no se encuentra
 }
 
 fun getFavoritePokemon(): List<Pokemon>{

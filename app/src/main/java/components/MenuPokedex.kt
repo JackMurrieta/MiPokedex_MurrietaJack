@@ -25,19 +25,19 @@ fun MenuPokedex(pokemonList: List<Pokemon>){
 }
 
 @Composable
-fun FavriteRow(favoriteList:List<Pokemon>, onNavigateToDetail: PokemonDetail){
+fun FavriteRow(favoriteList:List<Pokemon>, onNavigateToDetail: (Int) -> Unit){
     LazyRow(
         contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(15.dp)
     ){
         items(favoriteList){
-            pokemon -> FavoritePokemon(pokemon)
+            pokemon -> FavoritePokemon(pokemon, onNavigateToDetail)
         }
     }
 }
 
 @Composable
-fun PokedexGrid(pokemonList: List<Pokemon>, onNavigateToDetail: PokemonDetail){
+fun PokedexGrid(pokemonList: List<Pokemon>, onNavigateToDetail: (Int) -> Unit){
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
         contentPadding = PaddingValues(horizontal = 5.dp, vertical = 20.dp),
@@ -45,7 +45,7 @@ fun PokedexGrid(pokemonList: List<Pokemon>, onNavigateToDetail: PokemonDetail){
         horizontalArrangement = Arrangement.spacedBy(5.dp)
     ){
         items(pokemonList){
-            pokemon -> PokemonCell(pokemon)
+            pokemon -> PokemonCell(pokemon, onNavigateToDetail)
         }
     }
 }
@@ -59,11 +59,11 @@ fun MenuPokedexPreview() {
 @Preview(showBackground = true)
 @Composable
 fun FavriteRowPreview() {
-    FavriteRow(favoriteList = pokemonList.take(5))
+    FavriteRow(favoriteList = pokemonList.take(5), onNavigateToDetail = {})
 }
 
 @Preview(showBackground = true)
 @Composable
 fun PokedexGridPreview() {
-    PokedexGrid(pokemonList = pokemonList)
+    PokedexGrid(pokemonList = pokemonList, onNavigateToDetail = {})
 }

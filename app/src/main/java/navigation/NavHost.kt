@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import data.pokemonList
+import androidx.navigation.toRoute
 import screens.MenuPokedexScreen
 import screens.PokemonDetailScreen
 
@@ -17,11 +17,11 @@ fun MyApp(innerPadding: PaddingValues){
 
     NavHost(navController, startDestination = PokemonList){
         composable<PokemonList> {
-            MenuPokedexScreen(innerPadding, { pokemonList  -> navController.navigate(PokemonDetail(pokemon))})
+            MenuPokedexScreen(innerPadding, { pokemonNum -> navController.navigate(PokemonDetail(pokemonNum))})
         }
         composable<PokemonDetail> {
-            val pokemon = it.arguments?.getInt("pokemon") ?: -1
-            PokemonDetailScreen(innerPadding, pokemon)
+            val args = it.toRoute<PokemonDetail>()
+            PokemonDetailScreen(innerPadding, args.pokemon)
         }
     }
 }
