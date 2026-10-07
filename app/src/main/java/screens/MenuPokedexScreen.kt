@@ -14,9 +14,10 @@ import androidx.compose.ui.unit.dp
 import components.FavriteRow
 import components.PokedexGrid
 import data.pokemonList
+import navigation.PokemonDetail
 
 @Composable
-fun MenuPokedexScreen(innerPadding: PaddingValues){
+fun MenuPokedexScreen(innerPadding: PaddingValues, onNavigateToDetail: PokemonDetail){
     val favoritePokemons = pokemonList.take(5)
 
     Column(
@@ -49,3 +50,4 @@ fun MenuPokedexScreen(innerPadding: PaddingValues){
 fun MenuPokedexScreenPreview() {
     MenuPokedexScreen(innerPadding = PaddingValues(0.dp))
 }
+

@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import data.pokemonList
 import domain.Pokemon
+import navigation.PokemonDetail
 
 @Composable
 fun MenuPokedex(pokemonList: List<Pokemon>){
@@ -24,8 +25,11 @@ fun MenuPokedex(pokemonList: List<Pokemon>){
 }
 
 @Composable
-fun FavriteRow(favoriteList:List<Pokemon>){
-    LazyRow(){
+fun FavriteRow(favoriteList:List<Pokemon>, onNavigateToDetail: PokemonDetail){
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+        horizontalArrangement = Arrangement.spacedBy(15.dp)
+    ){
         items(favoriteList){
             pokemon -> FavoritePokemon(pokemon)
         }
@@ -33,7 +37,7 @@ fun FavriteRow(favoriteList:List<Pokemon>){
 }
 
 @Composable
-fun PokedexGrid(pokemonList: List<Pokemon>){
+fun PokedexGrid(pokemonList: List<Pokemon>, onNavigateToDetail: PokemonDetail){
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
         contentPadding = PaddingValues(horizontal = 5.dp, vertical = 20.dp),

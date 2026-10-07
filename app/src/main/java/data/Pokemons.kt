@@ -27,3 +27,19 @@ val pokemonList = listOf(
     Pokemon("Lucario", 448, "Fighting/Steel", "By catching the aura emanating from others, it can read their thoughts and movements.", 1.2f, 54.0f, true, "Steadfast", R.drawable.lucario),
     Pokemon("Mimikyu", 778, "Ghost/Fairy", "Its actual appearance is unknown. A scholar who saw what was under its rag overwhelmed by terror and died.", 0.2f, 0.7f, false, "Disguise", R.drawable.mimikyu)
 )
+
+
+fun getPokemonByNumber(pokemon:Number): Pokemon{
+//    if(pokemon == -1){
+//        return
+//    }
+    return pokemonList.filter {
+        it.num == pokemon
+    }.first()
+}
+
+fun getFavoritePokemon(): List<Pokemon>{
+    return pokemonList.filter {
+        it.favorite
+    }
+}
