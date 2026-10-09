@@ -1,5 +1,6 @@
 package com.example.mipokedex_murrietajackt.ui.theme
 
+import android.hardware.lights.Light
 import androidx.compose.ui.graphics.Color
 
 val Purple80 = Color(0xFFD0BCFF)
@@ -39,7 +40,11 @@ val Dark = Color(0xFF131310)
 val Ice = Color(0xFF9FA8DA)
 val Fairy = Color(0xFFEF9A9A)
 
+// navigation colors
 
+val LightGreen = Color(0xFFCCFFCE)
+val Blue = Color(0xFF4D92D2)
+val LightBlue = Color(0xFFA5CEFD)
 
 
 

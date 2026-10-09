@@ -16,6 +16,13 @@ import components.PokedexGrid
 import data.pokemonList
 import navigation.PokemonDetail
 
+
+//agregar un switch que permita elegir entre mostrar la lista de pokemones en grid o en lista
+
+// agregar estado a nivel componentes, importar dos funciones extras
+
+// var grid by remember {mutableStateOf(false)}
+
 @Composable
 fun MenuPokedexScreen(innerPadding: PaddingValues, onNavigateToDetail: (Int) -> Unit){
     val favoritePokemons = pokemonList.take(5)

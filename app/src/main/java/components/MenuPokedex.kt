@@ -15,6 +15,9 @@ import data.pokemonList
 import domain.Pokemon
 import navigation.PokemonDetail
 
+
+
+// implementar un estado a nivel de componentes
 @Composable
 fun MenuPokedex(pokemonList: List<Pokemon>){
     LazyColumn() {

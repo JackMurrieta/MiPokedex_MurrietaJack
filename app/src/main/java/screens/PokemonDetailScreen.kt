@@ -224,4 +224,6 @@ fun PokemonDetailScreen(innerPadding: PaddingValues, pokemonNumber: Number){
         
         Spacer(modifier = Modifier.height(24.dp))
     }
+
+    //crear un preview del pokemon a mostrar
 }
