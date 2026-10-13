@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import screens.MenuPokedexScreen
 import screens.PokemonDetailScreen
+import screens.PokemonHuntScreen
 
 //conocer todas las rutas y controlador de las pantallas
 
@@ -22,6 +23,9 @@ fun MyApp(innerPadding: PaddingValues){
         composable<PokemonDetail> {
             val args = it.toRoute<PokemonDetail>()
             PokemonDetailScreen(innerPadding, args.pokemon)
+        }
+        composable<PokemonHunt> {
+            PokemonHuntScreen(innerPadding)
         }
     }
 }
