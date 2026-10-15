@@ -8,6 +8,9 @@ import domain.Pokemon
 import data.pokemonList
 
 class PokemonViewModel : ViewModel() {
+
+
+
     var wildPokemon by mutableStateOf<Pokemon?>(null)
         private set
 
@@ -19,7 +22,12 @@ class PokemonViewModel : ViewModel() {
 
     fun searchPokemon(){
         wildPokemon = pokemonList.random()
+        gonePokemon = false
+        captured = false
     }
+
+    var captured by mutableStateOf(false)
+    private set
 
     fun capturePokemon(){
         wildPokemon?.let{
@@ -28,10 +36,12 @@ class PokemonViewModel : ViewModel() {
                 capturedPokemon = capturedPokemon + it
                 gonePokemon = false
                 wildPokemon = null
+                captured = true
 
             }else{
                 gonePokemon = true
                 wildPokemon = null
+                captured = false
             }
 
         }

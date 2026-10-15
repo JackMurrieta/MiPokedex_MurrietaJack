@@ -28,7 +28,7 @@ import utilities.getColorByType
 
 
 @Composable
-fun PokemonDetailScreen(innerPadding: PaddingValues, pokemonNumber: Number){
+fun PokemonDetailScreen(innerPadding: PaddingValues, pokemonNumber: Int){
     val pokemon = getPokemonByNumber(pokemonNumber)
     val typeColors = getColorByType(pokemon.type)
     

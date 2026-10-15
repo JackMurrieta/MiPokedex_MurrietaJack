@@ -18,7 +18,11 @@ fun MyApp(innerPadding: PaddingValues){
 
     NavHost(navController, startDestination = PokemonList){
         composable<PokemonList> {
-            MenuPokedexScreen(innerPadding, { pokemonNum -> navController.navigate(PokemonDetail(pokemonNum))})
+            MenuPokedexScreen(
+                innerPadding = innerPadding,
+                onNavigateToDetail = { pokemonNum -> navController.navigate(PokemonDetail(pokemonNum)) },
+                onNavigateToHunt = { navController.navigate(PokemonHunt) }
+            )
         }
         composable<PokemonDetail> {
             val args = it.toRoute<PokemonDetail>()
@@ -27,5 +31,9 @@ fun MyApp(innerPadding: PaddingValues){
         composable<PokemonHunt> {
             PokemonHuntScreen(innerPadding)
         }
+
+
     }
 }
+
+

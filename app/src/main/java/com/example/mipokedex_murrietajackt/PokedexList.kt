@@ -21,7 +21,11 @@ class PokedexList : ComponentActivity() {
         setContent {
             MiPokedex_MurrietaJackTTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MenuPokedexScreen(innerPadding = innerPadding)
+                    MenuPokedexScreen(
+                        innerPadding = innerPadding,
+                        onNavigateToDetail = {},
+                        onNavigateToHunt = {}
+                    )
                 }
             }
         }

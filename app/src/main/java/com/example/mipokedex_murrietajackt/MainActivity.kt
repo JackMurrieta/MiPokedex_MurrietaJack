@@ -32,11 +32,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            MyApp(innerPadding)
-
-//            MyPokedexTheme {
-//                PokedexScreen()
-//            }
+            Scaffold { innerPadding ->
+                MyApp(innerPadding)
+            }
         }
     }
 }

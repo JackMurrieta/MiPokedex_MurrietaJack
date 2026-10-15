@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,7 +19,9 @@ import androidx.compose.ui.modifier.ModifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import components.PokemonRow
 import viewModel.PokemonViewModel
 
 @Composable
@@ -35,14 +39,38 @@ fun PokemonHuntScreen(innerPadding: PaddingValues, viewModel: PokemonViewModel =
 
             Spacer(Modifier.size(20.dp))
 
+            viewModel.wildPokemon
+                ?.let {  }
+
+            if(viewModel.gonePokemon){
+                Text("El pokemon se ha escapado")
+            }
+
+            if(viewModel.captured){
+
+            }
+
+            Spacer(Modifier.size(20.dp))
+
+            Text("")
+
             Button(onClick = {viewModel.capturePokemon()}) {
                 Text("Capturar a ${pokemon.name}!")
+            }
+            LazyColumn() {
+                items(viewModel.capturedPokemon){
+                    pokemon ->
+                    PokemonRow(pokemon)
+                }
             }
         }
 
     }
 
 }
+
+
+
 
 @Preview
 @Composable
